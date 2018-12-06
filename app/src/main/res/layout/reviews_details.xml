@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#f5f5f5">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Review By"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvReviewBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:padding="10dp"
+                    android:backgroundTint="#f1efef"
+                    android:text="Hector Salamanca"
+                    android:textColor="@color/falsetextcolor"
+                    android:textSize="@dimen/_15sdp" />
+
+
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Review"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvReviewName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:padding="10dp"
+                    android:backgroundTint="#f1efef"
+                    android:text="Welcome in Android"
+                    android:textColor="@color/falsetextcolor"
+                    android:textSize="@dimen/_15sdp" />
+
+
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reply"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvReplyNm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:padding="10dp"
+                    android:backgroundTint="#f1efef"
+                    android:text="Hi i am android"
+                    android:textColor="@color/falsetextcolor"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:padding="10dp"
+                    android:backgroundTint="#f1efef"
+                    android:text="05:09 pm"
+                    android:textColor="@color/falsetextcolor"
+                    android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating"
+                    android:padding="10dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/ratingBar"
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:numStars="5"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content"
+                    />
+        </LinearLayout>
+
+
+</RelativeLayout>

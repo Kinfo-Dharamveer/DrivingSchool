@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="7dp">
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvVehicle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:text="Alfa-Romeo Stelvio"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reply"
+        android:background="@drawable/round_white"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/round_white"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+  <!--  <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvReviewName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Karan verma"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />-->
+
+   <!-- <me.zhanghai.android.materialratingbar.MaterialRatingBar
+        android:layout_weight="0.5"
+        android:id="@+id/ratingBar"
+        style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />-->
+
+</LinearLayout>
+

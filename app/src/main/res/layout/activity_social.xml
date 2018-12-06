@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".ui.SocialButtonsActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_centerInParent="true"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_20sdp">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/roundregister_screen" >
+
+            <Button
+                android:id="@+id/btnRegisterSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:drawableLeft="@drawable/ic_blackicon"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:textAppearance="@style/TextViewBold"
+                android:minWidth="0dp"
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/register_your_school"
+                android:textColor="@android:color/black" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnLoginSchInst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rounded_layout_sky" >
+
+            <Button
+                android:id="@+id/btnLoginAsSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:drawableLeft="@drawable/ic_blackicon"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:textAppearance="@style/TextViewBold"
+                android:minWidth="0dp"
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_5sdp"
+                android:drawableTint="@color/white"
+                android:text="Login as School Or Instructor"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"/>
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/txtForgotPsw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:padding="@dimen/_3sdp"
+            android:textSize="@dimen/_12sdp"/>
+
+        <FrameLayout
+            android:id="@+id/btnLoginFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:backgroundTint="@color/blue"
+            android:background="@drawable/rounded_layout_sky" >
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:drawableLeft="@drawable/ic_blackicon"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:textAppearance="@style/TextViewBold"
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_5sdp"
+                android:drawableTint="@color/white"
+                android:text="Login with facebook"
+                android:textColor="@android:color/white" />
+
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/fbLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:visibility="gone"/>
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnLoginGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rounded_layout_sky" >
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:drawableLeft="@drawable/ic_blackicon"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:textAppearance="@style/TextViewBold"
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_5sdp"
+                android:drawableTint="@color/white"
+                android:text="@string/login_with_google"
+                android:textColor="@android:color/white" />
+
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/googleLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

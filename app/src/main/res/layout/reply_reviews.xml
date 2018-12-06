@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/txtUserName"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author"
+        android:padding="5dp"
+        android:backgroundTint="@color/lightgrey"
+        android:background="@drawable/round_white"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"/>
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reply"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"/>
+
+
+    <EditText
+        android:id="@+id/edReply"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="8"
+        android:scrollbars="vertical"
+        android:background="@drawable/round_white"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/txtSubmitReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:background="@drawable/round_white"
+            android:padding="8dp"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"/>
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/txtCancelReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:padding="8dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"/>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

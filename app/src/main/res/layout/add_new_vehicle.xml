@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manufacturer"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/edManufaturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_white"
+        android:padding="8dp" />
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Model"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/edModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_white"
+        android:padding="8dp" />
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Vehicle Type"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <Spinner
+        android:id="@+id/spinVehType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_white"
+        android:padding="10dp" />
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Steering"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <Spinner
+        android:id="@+id/spinSteering"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_white"
+        android:padding="10dp" />
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Upload"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_white"
+        android:padding="2dp">
+
+        <Button
+            android:id="@+id/btnChooseFileVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose File"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_13sdp"/>
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/tvFileStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No file chosen"
+            android:layout_marginLeft="10dp"
+            android:textSize="@dimen/_15sdp" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/submitInst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_white"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp" />
+
+        <com.drivingschool.android.customviews.CustomTextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

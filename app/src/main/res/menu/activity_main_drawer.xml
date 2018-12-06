@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/g1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dash"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Home" />
+    </group>
+
+    <group
+        android:id="@+id/g2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_instr"
+            android:icon="@drawable/ic_instr"
+            android:title="Instructors" />
+    </group>
+
+    <group
+        android:id="@+id/g3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_students"
+            android:icon="@drawable/ic_instr"
+            android:title="Students" />
+    </group>
+
+    <group
+        android:id="@+id/g4"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_reviews"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Reviews" />
+    </group>
+
+    <group
+        android:id="@+id/g5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_vehicles"
+            android:icon="@drawable/ic_instr"
+            android:title="Vehicles" />
+    </group>
+
+    <group
+        android:id="@+id/g6"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_packa"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Packages" />
+    </group>
+
+    <group
+        android:id="@+id/g7"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_instr"
+            android:title="Settings"/>
+    </group>
+
+    <group
+        android:id="@+id/g8"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_plans"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Manage Plans"/>
+
+    </group>
+
+
+</menu>

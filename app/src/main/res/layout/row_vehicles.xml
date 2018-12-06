@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+
+    <ImageView
+        android:id="@+id/imageCar"
+        android:layout_margin="8dp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:src="@drawable/car"
+        android:scaleType="fitXY"
+        />
+
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_weight="1"
+        android:id="@+id/tvManufacturer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Alfa-Romeo"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvDetailVeh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:layout_gravity="center"
+        android:background="@drawable/round_white"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvRemoveVeh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/round_white"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+
+</LinearLayout>

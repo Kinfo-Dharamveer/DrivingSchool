@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_weight="1"
+        android:id="@+id/tvPlaneName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Starter"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_weight="1"
+        android:id="@+id/tvType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Alfa"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_weight="1"
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Alfa"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:layout_weight="1"
+        android:id="@+id/tvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="56"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"/>
+
+    <com.drivingschool.android.customviews.CustomTextView
+        android:id="@+id/tvPurchase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Purchase"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:backgroundTint="@color/green"
+        android:background="@drawable/round_white"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:padding="10dp"/>
+
+
+</LinearLayout>

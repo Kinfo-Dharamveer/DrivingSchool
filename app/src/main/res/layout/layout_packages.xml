@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.PackagesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"/>
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:id="@+id/tvPackage"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:maxLines="1"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextViewBold"
+                android:layout_height="wrap_content"
+                android:text="Package"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"/>
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:id="@+id/tvDuration"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:maxLines="1"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextViewBold"
+                android:layout_height="wrap_content"
+                android:text="Duration"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"/>
+
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:background="@drawable/round_white"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/round_white"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue"/>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_packages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/row_packages"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+
