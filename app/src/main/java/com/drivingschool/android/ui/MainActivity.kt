@@ -62,6 +62,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         // Set a Toolbar to replace the ActionBar.
         toolbar = findViewById(R.id.main_toolbar)
 

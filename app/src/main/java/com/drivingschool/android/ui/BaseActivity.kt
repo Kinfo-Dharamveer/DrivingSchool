@@ -21,7 +21,7 @@ open class BaseActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // noInternetDialog = NoInternetDialog.Builder(applicationContext).build()
+        //noInternetDialog = NoInternetDialog.Builder(applicationContext).build()
 
         //Dialog
         pDialog = ProgressDialog(this)
