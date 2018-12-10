@@ -1,17 +1,14 @@
 package com.drivingschool.android.ui
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.Handler
 import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 
 import android.view.MenuItem
 import android.view.View
@@ -20,9 +17,12 @@ import android.support.v7.widget.PopupMenu
 import android.support.v7.widget.Toolbar
 import android.text.Spannable
 import android.text.SpannableString
+import android.view.LayoutInflater
 import android.view.Menu
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Toast
 
 
 import com.drivingschool.android.R
@@ -30,11 +30,15 @@ import com.drivingschool.android.customviews.CustomTextView
 import com.nex3z.notificationbadge.NotificationBadge
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.customviews.CustomTypefaceSpan
+import com.drivingschool.android.data.Constants.CONNECTIVITY_ACTION
+import com.drivingschool.android.data.MessageEvent
 import com.drivingschool.android.fragment.*
+import com.drivingschool.android.service.NetworkChangeReceiver
+import com.drivingschool.android.utils.NetworkUtil
 import com.orhanobut.hawk.Hawk
 import dmax.dialog.SpotsDialog
-import kotlinx.android.synthetic.main.nav_header_main.*
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -54,8 +58,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     var navigationView: NavigationView? = null
     var progrDialog: AlertDialog? = null
-    var mPendingRunnable: Runnable? = null
-    var mHandler: Handler? = null
+
+
+
+    internal lateinit var notInternetLayout: LinearLayout
+    internal lateinit var main_container: FrameLayout
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,8 +71,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setContentView(R.layout.activity_main)
 
 
-        // Set a Toolbar to replace the ActionBar.
-        toolbar = findViewById(R.id.main_toolbar)
+        intentFilter = IntentFilter()
+        intentFilter.addAction(CONNECTIVITY_ACTION)
+        receiver = NetworkChangeReceiver()
+
+        if (NetworkUtil.getConnectivityStatus(this) > 0)
+            println("Connect")
+        else
+            println("No connection")
+
+
+        findIds()
 
         if (savedInstanceState == null) {
             val f1 = HomeFrag()
@@ -73,16 +90,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             fragmentTransaction.commit()
         }
 
-        imgDrawer = findViewById(R.id.imgopenDrawer)
-        toolbarTitle = findViewById(R.id.toolbarText)
-        badge = findViewById(R.id.badge)
-
-        frameLayout = findViewById(R.id.content_frame)
-        drawLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.nav_view)
-        action_dots = findViewById(R.id.action_dots)
 
         progrDialog = SpotsDialog(this,R.style.Custom)
+
 
         val m = navigationView!!.getMenu()
         for (i in 0 until m.size()) {
@@ -100,8 +110,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             //the method we have create in activity
             applyFontToMenuItem(mi)
         }
-
-
 
         //txtUserName.setText(Hawk)
 
@@ -138,11 +146,58 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     }
 
+    private fun findIds() {
+        // Set a Toolbar to replace the ActionBar.
+        toolbar = findViewById(R.id.main_toolbar)
+
+        main_container = findViewById(R.id.main_container)
+        notInternetLayout = findViewById(R.id.notInternetLayout)
+        imgDrawer = findViewById(R.id.imgopenDrawer)
+        toolbarTitle = findViewById(R.id.toolbarText)
+        badge = findViewById(R.id.badge)
+
+        frameLayout = findViewById(R.id.content_frame)
+        drawLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
+        action_dots = findViewById(R.id.action_dots)
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
+    @Subscribe
+    fun onEvent(status: MessageEvent){
+
+        if (status.status.contains("NOT_CONNECT")){
+
+
+            notInternetLayout.visibility = View.VISIBLE
+            main_container.setVisibility(View.GONE)
+            Toast.makeText(this,"NOT CONNECTED",Toast.LENGTH_SHORT).show()
+
+        }
+        else{
+            main_container.setVisibility(View.VISIBLE)
+            notInternetLayout.visibility = View.GONE
+            Toast.makeText(this,"CONNECTED",Toast.LENGTH_SHORT).show()
+
+        }
+
+    }
+
+
     fun setToolbarTittle(title: String) {
 
         toolbarTitle.setText(title)
     }
-
 
     private fun showPopUp(v: View) {
 
@@ -277,15 +332,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
         }
 
-        mPendingRunnable = Runnable {
-            drawLayout.closeDrawer(GravityCompat.START)
-        }
-        mHandler!!.postDelayed(mPendingRunnable, 50)
-
+        drawLayout.closeDrawer(GravityCompat.START)
 
         return true
 
     }
+
 
 
 }

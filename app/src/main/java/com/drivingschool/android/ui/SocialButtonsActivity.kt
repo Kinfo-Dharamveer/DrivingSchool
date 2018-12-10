@@ -7,9 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.Toast
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.customviews.CustomTextView
+import com.drivingschool.android.data.MessageEvent
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -22,6 +25,8 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.orhanobut.hawk.Hawk
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 import java.util.*
 
 class SocialButtonsActivity : BaseActivity() {
@@ -37,6 +42,9 @@ class SocialButtonsActivity : BaseActivity() {
     private var mGoogleSignInClient: GoogleSignInClient? = null
     private val RC_SIGN_IN = 1
 
+    internal lateinit var notInternetLayout: LinearLayout
+    internal lateinit var main_layout: LinearLayout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +54,10 @@ class SocialButtonsActivity : BaseActivity() {
     }
 
     private fun ReferenceControl() {
+
+        main_layout = findViewById(R.id.main)
+        notInternetLayout = findViewById(R.id.notInternetLayout)
+
 
         btnRegisterSchool = findViewById(R.id.btnRegisterSchool)
         btnLoginAsSchool = findViewById(R.id.btnLoginAsSchool)
@@ -203,4 +215,36 @@ class SocialButtonsActivity : BaseActivity() {
         finish()
 
     }
+
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
+
+    @Subscribe
+    fun onEvent(status: MessageEvent){
+
+        if (status.status.contains("NOT_CONNECT")){
+
+            notInternetLayout.visibility = View.VISIBLE
+            main_layout.setVisibility(View.GONE)
+            Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+
+        }
+        else{
+            main_layout.setVisibility(View.VISIBLE)
+            notInternetLayout.visibility = View.GONE
+            Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+
+        }
+
+    }
+
 }

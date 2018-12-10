@@ -294,5 +294,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="reply">Reply</string>
     <string name="author">Author</string>
+    <string name="check_your_con">Check your internet connection \n
+        and then try again</string>
 
 </resources>

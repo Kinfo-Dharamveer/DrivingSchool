@@ -87,8 +87,10 @@ class RegisterActivity : BaseActivity() {
                             }
                             else{
 
-                                ErrorAlertDialog(response.body()!!.getMessage())
+                                ErrorAlertDialog(response.body()!!.getMessage()!!)
                                 hidepDialog()
+
+
 
                             }
                         }

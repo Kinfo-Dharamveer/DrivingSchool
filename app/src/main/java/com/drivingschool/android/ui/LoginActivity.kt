@@ -2,18 +2,19 @@ package com.drivingschool.android.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
+import com.drivingschool.android.data.MessageEvent
 import com.drivingschool.android.response.login.LoginResponse
 import com.drivingschool.android.restclient.RestClient
 import com.orhanobut.hawk.Hawk
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +27,8 @@ class LoginActivity : BaseActivity() {
     private var txtForgotPsw: TextView? = null
     private var txtSignUp: TextView? = null
 
+    internal lateinit var notInternetLayout: LinearLayout
+    internal lateinit var main_layout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,21 @@ class LoginActivity : BaseActivity() {
     }
 
 
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
     private fun ReferenceControl() {
+
+        main_layout = findViewById(R.id.main_login)
+        notInternetLayout = findViewById(R.id.notInternetLayout)
+
 
         btnLogin = findViewById(R.id.btnLogin)
         edEmail = findViewById(R.id.edEmail)
@@ -98,6 +115,8 @@ class LoginActivity : BaseActivity() {
 
                                    hidepDialog()
 
+                                   Toast.makeText(applicationContext,"You are successfully login",Toast.LENGTH_SHORT).show()
+
                                    Hawk.put(AppConstants.USER_ID, response.body()!!.getUserId().toString())
 
                                    val i = Intent(applicationContext, MainActivity::class.java)
@@ -107,14 +126,14 @@ class LoginActivity : BaseActivity() {
                                    finish()
 
                                }
-                               else{
-
-                                   ErrorAlertDialog(response.message())
-
+                               else
+                               {
+                                   ErrorAlertDialog(response.body()!!.getMessage()!!)
                                }
 
                            }
-                           else{
+                           else
+                           {
                                ErrorAlertDialog("Email or password is incorrect")
                                hidepDialog()
                                edEmail!!.text.clear()
@@ -135,6 +154,25 @@ class LoginActivity : BaseActivity() {
         }
     }
 
+
+    @Subscribe
+    fun onEvent(status: MessageEvent){
+
+        if (status.status.contains("NOT_CONNECT")){
+
+            notInternetLayout.visibility = View.VISIBLE
+            main_layout.setVisibility(View.GONE)
+            Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+
+        }
+        else{
+            main_layout.setVisibility(View.VISIBLE)
+            notInternetLayout.visibility = View.GONE
+            Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+
+        }
+
+    }
 
 
 }
