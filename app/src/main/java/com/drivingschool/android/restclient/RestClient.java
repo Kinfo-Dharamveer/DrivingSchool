@@ -1,8 +1,8 @@
 package com.drivingschool.android.restclient;
 
-import com.drivingschool.android.R;
 import com.drivingschool.android.response.login.LoginResponse;
 import com.drivingschool.android.response.register.RegisterResponse;
+import com.drivingschool.android.response.schooldata.SchoolSuccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -14,17 +14,17 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public class RestClient {
 
     private static GitApiInterface gitApiInterface;
 
-    private static String baseUrl = "https://basicsoftwaresolution.com/drive/public/api/";
+    private static String baseUrl = "http://112.196.85.178/drive/public/api/";
 
     //    http://192.168.0.29/Chefcreation/v1/selectproducts
     public static GitApiInterface getClient() {
-
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -59,6 +59,10 @@ public class RestClient {
 
         @POST("register")
         Call<RegisterResponse> register(@Body HashMap<String, String> hashMap);
+
+        @GET("schools")
+        Call<SchoolSuccess> schoolList();
+
     }
 }
 

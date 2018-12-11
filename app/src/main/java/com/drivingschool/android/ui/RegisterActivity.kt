@@ -39,7 +39,7 @@ class RegisterActivity : BaseActivity() {
                 return
             }
             edSchoolNameReg!!.text.toString() == "" -> {
-                edSchoolNameReg!!.setError("Enter your School name")
+                edSchoolNameReg!!.setError("Enter your SchoolPayload name")
                 return
             }
             edContactReg!!.text.toString() == "" -> {

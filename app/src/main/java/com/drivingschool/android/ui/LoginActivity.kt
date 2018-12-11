@@ -4,9 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import com.android.volley.Request
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.data.MessageEvent
@@ -37,7 +34,6 @@ class LoginActivity : BaseActivity() {
         ReferenceControl()
 
     }
-
 
     override fun onStart() {
         super.onStart()
@@ -103,57 +99,56 @@ class LoginActivity : BaseActivity() {
                 stringStringHashMap.put("email",edEmail!!.text.toString())
                 stringStringHashMap.put("password",edPsw!!.text.toString())
 
-                  val restClient = RestClient.getClient()
+                val restClient = RestClient.getClient()
 
-                   restClient.login(stringStringHashMap).enqueue(object : Callback<LoginResponse> {
+                restClient.login(stringStringHashMap).enqueue(object : Callback<LoginResponse> {
 
-                       override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
-                           if (response.isSuccessful){
+                        if (response.isSuccessful){
 
-                               if (response.body()!!.getStatus().equals("Success")) {
+                            if (response.body()!!.getStatus().equals("Success")) {
 
-                                   hidepDialog()
+                                hidepDialog()
 
-                                   Toast.makeText(applicationContext,"You are successfully login",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(applicationContext,"You are successfully login",Toast.LENGTH_SHORT).show()
 
-                                   Hawk.put(AppConstants.USER_ID, response.body()!!.getUserId().toString())
+                                Hawk.put(AppConstants.USER_ID, response.body()!!.getUserId().toString())
 
-                                   val i = Intent(applicationContext, MainActivity::class.java)
-                                   startActivity(i)
-                                   overridePendingTransition(0,0)
+                                val i = Intent(applicationContext, MainActivity::class.java)
+                                startActivity(i)
+                                overridePendingTransition(0,0)
 
-                                   finish()
+                                finish()
 
-                               }
-                               else
-                               {
-                                   ErrorAlertDialog(response.body()!!.getMessage()!!)
-                               }
+                            }
+                            else
+                            {
+                                ErrorAlertDialog(response.body()!!.getMessage()!!)
+                            }
 
-                           }
-                           else
-                           {
-                               ErrorAlertDialog("Email or password is incorrect")
-                               hidepDialog()
-                               edEmail!!.text.clear()
-                               edPsw!!.text.clear()
-                           }
+                        }
+                        else
+                        {
+                            ErrorAlertDialog("Email or password is incorrect")
+                            hidepDialog()
+                            edEmail!!.text.clear()
+                            edPsw!!.text.clear()
+                        }
 
-                       }
+                    }
 
-                       override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
+                    override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
 
-                           ErrorAlertDialog(t.toString())
-                           hidepDialog()
+                        ErrorAlertDialog(t.toString())
+                        hidepDialog()
 
-                       }
-                   })
+                    }
+                })
 
             }
         }
     }
-
 
     @Subscribe
     fun onEvent(status: MessageEvent){

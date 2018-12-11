@@ -34,7 +34,7 @@ class SettingsFrag: Fragment(), AdapterView.OnItemSelectedListener {
 
         imagePicker =  ImagePicker()
 
-        viewOfLayout.edSchoolName.setText("Arya School")
+        viewOfLayout.edSchoolName.setText("Arya SchoolPayload")
         viewOfLayout.edAddress.setText("Gustavo Fring Avenue, Juarez, ABQ, New Mexico")
         viewOfLayout.edGoogleMapLink.setText("https://www.google.com/maps")
         viewOfLayout.edMobile.setText("9779269052")

@@ -21,7 +21,7 @@ class SplashActivity : Activity() {
                 try {
                     Thread.sleep(3000)
                     if (Hawk.get(AppConstants.USER_ID, "") == "") {
-                        val i = Intent(applicationContext, LoginActivity::class.java)
+                        val i = Intent(applicationContext, HomeActivity::class.java)
                         startActivity(i)
                         overridePendingTransition(0,0)
                         finish()

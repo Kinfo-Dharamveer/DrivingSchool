@@ -63,10 +63,6 @@ open class BaseActivity: AppCompatActivity() {
             pDialog!!.dismiss()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        // noInternetDialog!!.onDestroy()
-    }
 
     fun ErrorAlertDialog(msg: String) {
         val builder = AlertDialog.Builder(this)
@@ -83,6 +79,7 @@ open class BaseActivity: AppCompatActivity() {
           dialog.dismiss()
 
         }
+
 
         // Finally, make the alert dialog using builder
         val dialog: AlertDialog = builder.create()
