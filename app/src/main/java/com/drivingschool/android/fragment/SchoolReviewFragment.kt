@@ -13,8 +13,6 @@ import android.widget.Toast
 import com.drivingschool.android.R
 import kotlinx.android.synthetic.main.school_review_frag.view.*
 import com.androidnetworking.error.ANError
-import org.json.JSONArray
-import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.interfaces.JSONObjectRequestListener
