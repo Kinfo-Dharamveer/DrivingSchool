@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.drivingschool.android.AppConstants
 
 import com.drivingschool.android.R
 import com.drivingschool.android.adapters.SchoolsAdapter
@@ -81,7 +82,11 @@ class SchoolsFrag : Fragment(),SchoolsAdapter.buttonClickListenter {
 
     override fun readMoreClick(pos: Int) {
 
+
         val f1 = SchoolReviewFragment()
+        val args = Bundle()
+        args.putInt(AppConstants.SCHOOL_ID,pos)
+        f1.arguments = args
         val fragmentTransaction = fragmentManager!!.beginTransaction()
         fragmentTransaction.replace(R.id.home_container, f1)
         fragmentTransaction.commit()

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:id="@+id/tvPln"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Any"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"/>
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:id="@+id/tvPr"
+                android:layout_below="@id/tvPln"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ 123"
+                android:textAppearance="@style/TextViewBold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20sdp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvPlnDes"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Review name"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"/>
+
+                <com.drivingschool.android.customviews.CustomTextView
+                    android:id="@+id/tvSelectNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Now"
+                    android:padding="7dp"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/_8sdp"
+                    android:background="@drawable/round_white"
+                    android:backgroundTint="@color/green"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free lessons"
+                android:drawableLeft="@drawable/ic_circle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"/>
+
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free choice of vehicle"
+                android:drawableLeft="@drawable/ic_circle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"/>
+
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free choice of instructor"
+                android:drawableLeft="@drawable/ic_circle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"/>
+            <com.drivingschool.android.customviews.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free final exam"
+                android:drawableLeft="@drawable/ic_circle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+

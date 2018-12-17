@@ -60,7 +60,7 @@ public class SchoolsAdapter extends RecyclerView.Adapter<SchoolsAdapter.Holder> 
         holder.tvReadmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonClickListenter.readMoreClick(position);
+                buttonClickListenter.readMoreClick(schoolPayload.getId());
             }
         });
 

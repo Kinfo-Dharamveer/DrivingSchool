@@ -8,5 +8,6 @@ object AppConstants {
     val USER_LAST_NAME = "user_last_name"
     val USER_EMAIL = "user_email"
     val USER_PASSWORD = "user_password"
+    val SCHOOL_ID = "school_id"
 
 }
