@@ -21,9 +21,8 @@ public class RestClient {
 
     private static GitApiInterface gitApiInterface;
 
-    private static String baseUrl = "http://112.196.85.178/drive/public/api/";
+    private static String baseUrl = "http://112.196.85.181/drive/public/api/";
 
-    //    http://192.168.0.29/Chefcreation/v1/selectproducts
     public static GitApiInterface getClient() {
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
