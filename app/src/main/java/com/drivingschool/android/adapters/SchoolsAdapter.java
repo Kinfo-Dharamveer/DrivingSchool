@@ -40,7 +40,7 @@ public class SchoolsAdapter extends RecyclerView.Adapter<SchoolsAdapter.Holder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SchoolsAdapter.Holder holder, final int position) {
+    public void onBindViewHolder(SchoolsAdapter.Holder holder, final int position) {
 
         final SchoolPayload schoolPayload = schoolListArrayList.get(position);
 
@@ -51,9 +51,7 @@ public class SchoolsAdapter extends RecyclerView.Adapter<SchoolsAdapter.Holder> 
         holder.tvReviewCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 buttonClickListenter.reviewClick(position);
-
             }
         });
 
@@ -76,7 +74,7 @@ public class SchoolsAdapter extends RecyclerView.Adapter<SchoolsAdapter.Holder> 
         private ImageView schoolImage;
         private CustomTextView tvTitle,tvLocation,typeVehicle,tvInstr,tvVehicleCount,tvReviewCount,tvReadmore;
 
-        public Holder(@NonNull View itemView) {
+        public Holder(View itemView) {
             super(itemView);
 
             schoolImage = itemView.findViewById(R.id.schoolImage);
