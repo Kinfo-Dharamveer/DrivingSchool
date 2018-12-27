@@ -69,12 +69,19 @@
                             android:background="@color/grey"/>
 
                         <EditText
-                            android:id="@+id/edLocation"
-                            android:padding="8dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="#ffffff"
+                            android:id="@+id/edLocation"
+                            android:textColor="#ffffff"
+                            android:padding="8dp"
                             android:hint="Location"
-                            android:background="@android:color/transparent" />
+                            android:background="@android:color/transparent"
+                            android:gravity="start|center">
+                            <requestFocus />
+                        </EditText>
+
+
 
                     </LinearLayout>
 
@@ -106,12 +113,12 @@
                             android:background="@color/grey"/>
 
                         <!-- Spinner Element -->
-                        <Spinner
-                            android:id="@+id/spinner"
-                            android:dropDownVerticalOffset="35dp"
+                        <AutoCompleteTextView
+                            android:id="@+id/autoCompleteTextView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            />
+                            android:ems="10"
+                            android:background="@android:color/transparent"/>
 
                     </LinearLayout>
 

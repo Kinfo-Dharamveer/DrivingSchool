@@ -18,15 +18,10 @@ import org.greenrobot.eventbus.Subscribe
 
 class HomeActivity : BaseActivity() {
 
-    internal lateinit var notInternetLayout: LinearLayout
-    internal lateinit var main_layout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-        main_layout = findViewById(R.id.home_container)
-        notInternetLayout = findViewById(R.id.notInternetLayout)
 
 
         if (savedInstanceState == null) {
@@ -72,14 +67,15 @@ class HomeActivity : BaseActivity() {
 
         if (status.status.contains("NOT_CONNECT")){
 
-            notInternetLayout.visibility = View.VISIBLE
-            main_layout.setVisibility(View.GONE)
+            notInternetLayoutHome.visibility = View.VISIBLE
+            home_container.setVisibility(View.GONE)
             Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
-        else{
-            main_layout.setVisibility(View.VISIBLE)
-            notInternetLayout.visibility = View.GONE
+        else
+        {
+            home_container.setVisibility(View.VISIBLE)
+            notInternetLayoutHome.visibility = View.GONE
             Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
 
         }

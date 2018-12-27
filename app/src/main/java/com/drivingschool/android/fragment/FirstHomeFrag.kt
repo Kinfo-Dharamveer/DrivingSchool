@@ -1,5 +1,6 @@
 package com.drivingschool.android.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,13 +9,20 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 
 import com.drivingschool.android.R
-import kotlinx.android.synthetic.main.first_home_frag.view.*
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import kotlinx.android.synthetic.main.first_home_frag.*
+import kotlinx.android.synthetic.main.first_home_frag.view.*
+import com.androidnetworking.error.ANError
+import org.json.JSONArray
+import com.androidnetworking.interfaces.JSONArrayRequestListener
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import org.json.JSONObject
 
 
 class FirstHomeFrag : Fragment(), AdapterView.OnItemSelectedListener {
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -22,15 +30,42 @@ class FirstHomeFrag : Fragment(), AdapterView.OnItemSelectedListener {
         val view = inflater.inflate(R.layout.first_home_frag, container, false)
 
 
-        // Spinner click listener
-        view.spinner.setOnItemSelectedListener(this)
-
-
         // Spinner Drop down elements
         val categories = ArrayList<String>()
-        categories.add("All Vehicles types")
-        categories.add("LMV (Automatic")
-        categories.add("HMV (Manual/Auto")
+
+
+        AndroidNetworking.get("http://112.196.85.181:9083/drive/public/api_search/get_schools?q=my")
+                .setTag("test")
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject?) {
+                        val responseString = response.toString();
+                        val jsonData = JSONObject(responseString)
+
+                        val schoolsArray = jsonData.getJSONArray("schools")
+
+                        for (i in 0 until schoolsArray.length()) {
+
+
+                            val jObj = schoolsArray.getJSONObject(i)
+
+                            Toast.makeText(context, jObj.getString("name").toString(), Toast.LENGTH_LONG).show();
+                            categories.add(jObj.getString("name").toString())
+                            categories.add(jObj.getString("country").toString())
+
+
+                        }
+
+                    }
+
+                    override fun onError(anError: ANError?) {
+
+                        Toast.makeText(context,anError.toString(),Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+
 
         // Creating adapter for spinner
         val dataAdapter = ArrayAdapter<String>(context, R.layout.spinner_item, categories)
@@ -39,7 +74,13 @@ class FirstHomeFrag : Fragment(), AdapterView.OnItemSelectedListener {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         // attaching data adapter to spinner
-        view.spinner.setAdapter(dataAdapter);
+
+        //Creating the instance of ArrayAdapter containing list of fruit names
+        val adapter = ArrayAdapter<String>(context, android.R.layout.select_dialog_item, categories)
+        //Getting the instance of AutoCompleteTextView
+        view.autoCompleteTextView.threshold = 1//will start working from first character
+        view.autoCompleteTextView.setAdapter<ArrayAdapter<String>>(adapter)//setting the adapter data into the AutoCompleteTextView
+        view.autoCompleteTextView.setTextColor(Color.RED)
 
 
         return view

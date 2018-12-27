@@ -43,7 +43,7 @@ class SchoolReviewFragment : Fragment() {
 
         val school_id = arguments!!.getInt(AppConstants.SCHOOL_ID)
 
-        AndroidNetworking.get("http://112.196.85.178/drive/public/api/school/{id}")
+        AndroidNetworking.get("http://112.196.85.181:9083/drive/public/api/school/{id}")
                 .addPathParameter("id", "1")
                 .setTag("test")
                 .setPriority(Priority.LOW)
