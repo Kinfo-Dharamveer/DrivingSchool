@@ -1,5 +1,6 @@
 package com.drivingschool.android.restclient;
 
+import com.drivingschool.android.response.feedback.FeedbackSuccess;
 import com.drivingschool.android.response.login.LoginResponse;
 import com.drivingschool.android.response.register.RegisterResponse;
 import com.drivingschool.android.response.schooldata.SchoolSuccess;
@@ -61,6 +62,10 @@ public class RestClient {
 
         @GET("schools")
         Call<SchoolSuccess> schoolList();
+
+
+        @POST("contact")
+        Call<FeedbackSuccess> sendFeedback(@Body HashMap<String,String> hashMap);
 
     }
 }

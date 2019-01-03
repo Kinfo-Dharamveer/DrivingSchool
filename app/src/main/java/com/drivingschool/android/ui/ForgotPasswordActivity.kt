@@ -41,13 +41,13 @@ class ForgotPasswordActivity : BaseActivity() {
 
             notInternetLayout.visibility = View.VISIBLE
             main_layout.setVisibility(View.GONE)
-            Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
         else{
             main_layout.setVisibility(View.VISIBLE)
             notInternetLayout.visibility = View.GONE
-            Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
 

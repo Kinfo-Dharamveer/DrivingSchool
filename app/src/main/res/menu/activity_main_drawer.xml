@@ -9,7 +9,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dash"
-            android:icon="@drawable/ic_dashboard"
+            android:icon="@drawable/ic_homepage"
             android:title="Home" />
     </group>
 
@@ -18,7 +18,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_instr"
-            android:icon="@drawable/ic_instr"
+            android:icon="@drawable/ic_instructors"
             android:title="Instructors" />
     </group>
 
@@ -27,7 +27,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_students"
-            android:icon="@drawable/ic_instr"
+            android:icon="@drawable/ic_students"
             android:title="Students" />
     </group>
 
@@ -37,7 +37,7 @@
 
         <item
             android:id="@+id/nav_reviews"
-            android:icon="@drawable/ic_dashboard"
+            android:icon="@drawable/ic_reviews"
             android:title="Reviews" />
     </group>
 
@@ -46,7 +46,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_vehicles"
-            android:icon="@drawable/ic_instr"
+            android:icon="@drawable/ic_vehicles"
             android:title="Vehicles" />
     </group>
 
@@ -56,7 +56,7 @@
 
         <item
             android:id="@+id/nav_packa"
-            android:icon="@drawable/ic_dashboard"
+            android:icon="@drawable/ic_package"
             android:title="Packages" />
     </group>
 
@@ -66,7 +66,7 @@
 
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_instr"
+            android:icon="@drawable/ic_settings"
             android:title="Settings"/>
     </group>
 
@@ -76,8 +76,19 @@
 
         <item
             android:id="@+id/nav_plans"
-            android:icon="@drawable/ic_dashboard"
+            android:icon="@drawable/ic_plans"
             android:title="Manage Plans"/>
+
+    </group>
+
+    <group
+        android:id="@+id/g9"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_contact"
+            android:title="Contact Us"/>
 
     </group>
 

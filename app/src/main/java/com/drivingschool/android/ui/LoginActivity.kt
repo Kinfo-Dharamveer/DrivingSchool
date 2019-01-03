@@ -7,12 +7,11 @@ import android.widget.*
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.data.MessageEvent
-import com.drivingschool.android.fragment.FirstHomeFrag
-import com.drivingschool.android.fragment.SchoolsFrag
+import com.drivingschool.android.ui.fragments.FirstHomeFrag
+import com.drivingschool.android.ui.fragments.SchoolsFrag
 import com.drivingschool.android.response.login.LoginResponse
 import com.drivingschool.android.restclient.RestClient
 import com.orhanobut.hawk.Hawk
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -161,13 +160,13 @@ class LoginActivity : BaseActivity() {
 
             notInternetLayoutLogin.visibility = View.VISIBLE
             home_containerLogin.setVisibility(View.GONE)
-            Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
         else{
             home_containerLogin.setVisibility(View.VISIBLE)
             notInternetLayoutLogin.visibility = View.GONE
-            Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
 

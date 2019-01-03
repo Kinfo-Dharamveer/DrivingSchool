@@ -1,17 +1,12 @@
 package com.drivingschool.android.ui
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.Toast
 import com.drivingschool.android.R
 import com.drivingschool.android.data.MessageEvent
-import com.drivingschool.android.fragment.FirstHomeFrag
-import com.drivingschool.android.fragment.HomeFrag
-import com.drivingschool.android.fragment.SchoolsFrag
+import com.drivingschool.android.ui.fragments.FirstHomeFrag
+import com.drivingschool.android.ui.fragments.SchoolsFrag
 import kotlinx.android.synthetic.main.activity_home.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -69,14 +64,14 @@ class HomeActivity : BaseActivity() {
 
             notInternetLayoutHome.visibility = View.VISIBLE
             home_container.setVisibility(View.GONE)
-            Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
         else
         {
             home_container.setVisibility(View.VISIBLE)
             notInternetLayoutHome.visibility = View.GONE
-            Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
 

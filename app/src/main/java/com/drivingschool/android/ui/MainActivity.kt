@@ -17,12 +17,10 @@ import android.support.v7.widget.PopupMenu
 import android.support.v7.widget.Toolbar
 import android.text.Spannable
 import android.text.SpannableString
-import android.view.LayoutInflater
 import android.view.Menu
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 
 
 import com.drivingschool.android.R
@@ -32,8 +30,8 @@ import com.drivingschool.android.AppConstants
 import com.drivingschool.android.customviews.CustomTypefaceSpan
 import com.drivingschool.android.data.Constants.CONNECTIVITY_ACTION
 import com.drivingschool.android.data.MessageEvent
-import com.drivingschool.android.fragment.*
 import com.drivingschool.android.service.NetworkChangeReceiver
+import com.drivingschool.android.ui.fragments.*
 import com.drivingschool.android.utils.NetworkUtil
 import com.orhanobut.hawk.Hawk
 import dmax.dialog.SpotsDialog
@@ -181,13 +179,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             notInternetLayout.visibility = View.VISIBLE
             main_container.setVisibility(View.GONE)
-            Toast.makeText(this,"NOT CONNECTED",Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(this,"NOT CONNECTED",Toast.LENGTH_SHORT).show()
 
         }
         else{
             main_container.setVisibility(View.VISIBLE)
             notInternetLayout.visibility = View.GONE
-            Toast.makeText(this,"CONNECTED",Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(this,"CONNECTED",Toast.LENGTH_SHORT).show()
 
         }
 
@@ -329,6 +327,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         fragment.javaClass.getSimpleName()).addToBackStack(null).commit()
 
 
+            }
+
+            R.id.nav_contact_us -> {
+                val fragment = AboutUs()
+                transaction.replace(R.id.main_container,fragment,
+                        fragment.javaClass.simpleName).addToBackStack(null).commit()
             }
         }
 
