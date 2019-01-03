@@ -298,4 +298,7 @@
         and then try again</string>
     <string name="description">There\'s a house in the new orleans, they call it the rising sun, its been home to many a poor boys and god knows i am one.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

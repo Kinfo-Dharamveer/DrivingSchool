@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="#ececec"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.HomeActivity"
-    >
+    tools:context=".ui.HomeActivity">
 
 
     <android.support.v7.widget.CardView

@@ -69,18 +69,18 @@ class SocialButtonsActivity : BaseActivity() {
         googleLogin = findViewById(R.id.googleLogin)
 
         btnRegisterSchool!!.setOnClickListener {
-            val i = Intent(applicationContext, RegisterActivity::class.java)
-            startActivity(i)
+           /* val i = Intent(applicationContext, RegisterActivity::class.java)
+            startActivity(i)*/
         }
 
         btnLoginAsSchool!!.setOnClickListener {
-            val i = Intent(applicationContext, RegisterActivity::class.java)
-            startActivity(i)
+           /* val i = Intent(applicationContext, RegisterActivity::class.java)
+            startActivity(i)*/
         }
 
         txtForgotPsw!!.setOnClickListener {
-            val i = Intent(applicationContext, ForgotPasswordActivity::class.java)
-            startActivity(i)
+         /*   val i = Intent(applicationContext, ForgotPasswordActivity::class.java)
+            startActivity(i)*/
         }
         facebookLogin()
         googleSignIn()

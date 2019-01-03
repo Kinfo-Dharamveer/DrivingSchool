@@ -1,15 +1,12 @@
 package com.drivingschool.android.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.response.register.RegisterResponse
 import com.drivingschool.android.restclient.RestClient
-import com.orhanobut.hawk.Hawk
-import kotlinx.android.synthetic.main.activity_register.*
-import org.json.JSONObject
+import com.drivingschool.android.ui.fragments.LoginFrag
+import kotlinx.android.synthetic.main.register_frag.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,16 +16,16 @@ class RegisterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.register_frag)
         ReferenceControl()
 
     }
 
     private fun ReferenceControl() {
 
-        btnLogin!!.setOnClickListener {
+    /*    btnLogin!!.setOnClickListener {
             ValidateRegister()
-        }
+        }*/
     }
 
     private fun ValidateRegister() {
@@ -80,8 +77,10 @@ class RegisterActivity : BaseActivity() {
                                 Toast.makeText(applicationContext,"You are successfully registered",Toast.LENGTH_SHORT).show()
 
                                 hidepDialog()
-                                val i = Intent(applicationContext, LoginActivity::class.java)
-                                startActivity(i)
+                                val f1 = LoginFrag()
+                                val fragmentTransaction = supportFragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.home_containerLogin, f1)
+                                fragmentTransaction.commit()
                                 finish()
 
                             }

@@ -45,7 +45,7 @@ class FirstHomeFrag : Fragment(), AdapterView.OnItemSelectedListener {
 
                             val jObj = schoolsArray.getJSONObject(i)
 
-                            Toast.makeText(context, jObj.getString("name").toString(), Toast.LENGTH_LONG).show();
+                           // Toast.makeText(context, jObj.getString("name").toString(), Toast.LENGTH_LONG).show();
                             categories.add(jObj.getString("name").toString())
                             categories.add(jObj.getString("country").toString())
 

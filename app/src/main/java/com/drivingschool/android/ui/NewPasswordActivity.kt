@@ -1,12 +1,10 @@
 package com.drivingschool.android.ui
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.drivingschool.android.R
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.data.MessageEvent
@@ -24,7 +22,7 @@ class NewPasswordActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_password)
+        setContentView(R.layout.new_password_frag)
 
         main_layout = findViewById(R.id.main_lay)
         notInternetLayout = findViewById(R.id.notInternetLayout)

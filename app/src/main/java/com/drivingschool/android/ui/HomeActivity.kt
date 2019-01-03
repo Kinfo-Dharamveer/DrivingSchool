@@ -6,6 +6,7 @@ import android.view.View
 import com.drivingschool.android.R
 import com.drivingschool.android.data.MessageEvent
 import com.drivingschool.android.ui.fragments.FirstHomeFrag
+import com.drivingschool.android.ui.fragments.LoginFrag
 import com.drivingschool.android.ui.fragments.SchoolsFrag
 import kotlinx.android.synthetic.main.activity_home.*
 import org.greenrobot.eventbus.EventBus
@@ -42,7 +43,12 @@ class HomeActivity : BaseActivity() {
 
         }
         txtLogin.setOnClickListener {
-            startActivity(Intent(applicationContext, LoginActivity::class.java))
+
+            val f1 = LoginFrag()
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.home_container, f1)
+            fragmentTransaction.commit()
+
         }
 
     }

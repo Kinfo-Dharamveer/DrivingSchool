@@ -246,7 +246,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.action_logout -> {
                 Hawk.delete(AppConstants.USER_ID)
-                startActivity(Intent(this, LoginActivity::class.java))
+                val f1 = LoginFrag()
+                val fragmentTransaction = supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.home_containerLogin, f1)
+                fragmentTransaction.commit()
                 finish()
                 true
             }

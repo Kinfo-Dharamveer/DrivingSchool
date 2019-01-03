@@ -16,7 +16,7 @@ import com.drivingschool.android.response.feedback.FeedbackSuccess
 import com.drivingschool.android.restclient.RestClient
 import kotlinx.android.synthetic.main.about_us_frag.*
 import kotlinx.android.synthetic.main.about_us_frag.view.*
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.login_frag.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

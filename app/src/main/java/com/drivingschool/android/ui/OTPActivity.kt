@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.drivingschool.android.R
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.data.MessageEvent
+import com.drivingschool.android.ui.fragments.LoginFrag
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
@@ -54,8 +55,11 @@ class OTPActivity : BaseActivity() {
                     // Set a positive button and its click listener on alert dialog
                     builder.setPositiveButton("YES"){dialog, which ->
                         // Do something when user press the positive button
-                        val i = Intent(applicationContext,LoginActivity::class.java)
-                        startActivity(i)
+                        val f1 = LoginFrag()
+                        val fragmentTransaction = supportFragmentManager.beginTransaction()
+                        fragmentTransaction.replace(R.id.home_containerLogin, f1)
+                        fragmentTransaction.commit()
+                        finish()
                     }
 
                     // Finally, make the alert dialog using builder
