@@ -1,8 +1,8 @@
 package com.drivingschool.android.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.data.MessageEvent
 import com.drivingschool.android.ui.fragments.FirstHomeFrag
@@ -19,12 +19,19 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
         if (savedInstanceState == null) {
             val f1 = FirstHomeFrag()
             val fragmentTransaction = supportFragmentManager.beginTransaction()
             fragmentTransaction.add(R.id.home_container, f1)
             fragmentTransaction.commit()
+        }
+
+        val intentFragment = intent.extras!!.getInt((AppConstants.OPEN_LOGIN_FRAG))
+
+        if (intentFragment == 1) {
+            val loginFrag = LoginFrag()
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.home_container, loginFrag, "LoginFrag").commit()
         }
 
         txtHome.setOnClickListener {
@@ -51,6 +58,7 @@ class HomeActivity : BaseActivity() {
 
         }
 
+
     }
 
     override fun onStart() {
@@ -64,20 +72,18 @@ class HomeActivity : BaseActivity() {
     }
 
     @Subscribe
-    fun onEvent(status: MessageEvent){
+    fun onEvent(status: MessageEvent) {
 
-        if (status.status.contains("NOT_CONNECT")){
+        if (status.status.contains("NOT_CONNECT")) {
 
             notInternetLayoutHome.visibility = View.VISIBLE
             home_container.setVisibility(View.GONE)
-           // Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this,"NOT CONNECTED", Toast.LENGTH_SHORT).show()
 
-        }
-        else
-        {
+        } else {
             home_container.setVisibility(View.VISIBLE)
             notInternetLayoutHome.visibility = View.GONE
-           // Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this,"CONNECTED", Toast.LENGTH_SHORT).show()
 
         }
 

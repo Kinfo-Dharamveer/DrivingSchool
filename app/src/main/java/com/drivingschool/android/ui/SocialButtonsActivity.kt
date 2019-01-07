@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.drivingschool.android.AppConstants
 import com.drivingschool.android.R
 import com.drivingschool.android.customviews.CustomTextView
@@ -208,7 +207,7 @@ class SocialButtonsActivity : BaseActivity() {
 
     private fun goToWelcomeScreen() {
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, DashboardActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)

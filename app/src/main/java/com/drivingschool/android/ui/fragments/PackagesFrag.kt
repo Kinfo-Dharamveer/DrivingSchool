@@ -12,7 +12,7 @@ import com.drivingschool.android.R
 import com.drivingschool.android.adapters.PackageAdapter
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.PackageList
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 
 class PackagesFrag: Fragment() {
 
@@ -26,7 +26,7 @@ class PackagesFrag: Fragment() {
 
         val view = inflater.inflate(R.layout.layout_packages,container,false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Packages")
 
         recyclerView = view.findViewById(R.id.recyclerview_packages)

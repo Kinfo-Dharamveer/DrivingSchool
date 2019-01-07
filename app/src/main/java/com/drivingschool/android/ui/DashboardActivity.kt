@@ -39,7 +39,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
+class DashboardActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
         PopupMenu.OnMenuItemClickListener{
 
     var imgNotification: ImageView? = null
@@ -246,10 +246,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.action_logout -> {
                 Hawk.delete(AppConstants.USER_ID)
-                val f1 = LoginFrag()
-                val fragmentTransaction = supportFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.home_containerLogin, f1)
-                fragmentTransaction.commit()
+
+                val i = Intent(applicationContext,HomeActivity::class.java)
+                i.putExtra(AppConstants.OPEN_LOGIN_FRAG,1)
+                startActivity(i)
                 finish()
                 true
             }

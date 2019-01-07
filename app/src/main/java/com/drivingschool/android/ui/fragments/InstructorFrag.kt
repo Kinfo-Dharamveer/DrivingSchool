@@ -15,7 +15,7 @@ import com.drivingschool.android.adapters.InstructorsAdapter
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.InstructorModel
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 import kotlinx.android.synthetic.main.layout_instructor.view.*
 
 
@@ -32,7 +32,7 @@ class InstructorFrag : Fragment(), InstructorsAdapter.mClickListener {
 
         val view = inflater.inflate(R.layout.layout_instructor, container, false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Instructor")
 
 

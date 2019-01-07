@@ -26,7 +26,7 @@ class SplashActivity : Activity() {
                         overridePendingTransition(0,0)
                         finish()
                     } else {
-                        val i = Intent(applicationContext, MainActivity::class.java)
+                        val i = Intent(applicationContext, DashboardActivity::class.java)
                         startActivity(i)
                         overridePendingTransition(0,0)
                         finish()

@@ -5,6 +5,8 @@
     <color name="colorAccent">#8f8e8f</color>
 
     <color name="backgroundcolor">#dfdfdf</color>
+    <color name="schoolcard">#19a3b8</color>
+    <color name="studentcard">#dc3646</color>
     <color name="grey">#6c6b6b</color>
     <color name="lightgrey">#f1f0f0</color>
     <color name="orangetheme">#f15c2a</color>

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.drivingschool.android.R
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 
 class HomeFrag : Fragment() {
 
@@ -15,7 +15,7 @@ class HomeFrag : Fragment() {
 
         val view = inflater.inflate(R.layout.home_frag,container,false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Dashboard")
 
 

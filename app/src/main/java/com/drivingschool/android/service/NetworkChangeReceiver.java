@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.drivingschool.android.data.Constants;
 import com.drivingschool.android.data.MessageEvent;
-import com.drivingschool.android.ui.MainActivity;
 import com.drivingschool.android.utils.NetworkUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -37,7 +36,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
 
             Log.e("Receiver ", "connected to internet");//your code when internet connection come back
         }
-       // MainActivity.addLogText(status);
+       // DashboardActivity.addLogText(status);
 
     }
 

@@ -9,5 +9,7 @@ object AppConstants {
     val USER_EMAIL = "user_email"
     val USER_PASSWORD = "user_password"
     val SCHOOL_ID = "school_id"
+    val ROLE_ID = "role_id"
+    val OPEN_LOGIN_FRAG = "open_login_frag"
 
 }

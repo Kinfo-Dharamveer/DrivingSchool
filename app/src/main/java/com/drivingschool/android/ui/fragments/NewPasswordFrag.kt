@@ -2,14 +2,14 @@ package com.drivingschool.android.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.drivingschool.android.R
-import com.drivingschool.android.ui.OTPActivity
 import kotlinx.android.synthetic.main.new_password_frag.view.*
 
-class NewPasswordFrag : BaseFrag() {
+class NewPasswordFrag : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,8 +28,13 @@ class NewPasswordFrag : BaseFrag() {
                     view.edConfirmPass!!.setError("Enter confirm password")
                 }
                 else ->{
-                    val i = Intent(context, OTPActivity::class.java)
-                    startActivity(i)
+
+
+                    val f1 = OtpFrag()
+                    val fragmentTransaction = fragmentManager!!.beginTransaction()
+                    fragmentTransaction.replace(R.id.home_container, f1)
+                    fragmentTransaction.commit()
+
                 }
             }
         }

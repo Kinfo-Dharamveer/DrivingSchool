@@ -14,7 +14,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.drivingschool.android.R
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 import kotlinx.android.synthetic.main.layout_settings.view.*
 import java.io.File
 
@@ -29,7 +29,7 @@ class SettingsFrag: Fragment(), AdapterView.OnItemSelectedListener {
 
         viewOfLayout = inflater.inflate(R.layout.layout_settings,container,false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Settings")
 
         imagePicker =  ImagePicker()

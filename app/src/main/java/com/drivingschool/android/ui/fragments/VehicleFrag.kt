@@ -16,7 +16,7 @@ import com.drivingschool.android.adapters.VehicleAdapter
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.VehicleList
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 import kotlinx.android.synthetic.main.layout_vehicles.view.*
 
 class VehicleFrag : Fragment() {
@@ -31,7 +31,7 @@ class VehicleFrag : Fragment() {
 
         val view = inflater.inflate(R.layout.layout_vehicles, container, false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Vehicle")
 
         view.recyclerview_vehicle.setHasFixedSize(true)

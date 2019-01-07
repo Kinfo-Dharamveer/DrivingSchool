@@ -12,7 +12,7 @@ import com.drivingschool.android.R
 import com.drivingschool.android.adapters.PlansAdapter
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.PlansList
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 
 
 class PlansFrag: Fragment() {
@@ -26,7 +26,7 @@ class PlansFrag: Fragment() {
 
         val view = inflater.inflate(R.layout.layout_plans,container,false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Manage Plans")
 
         recyclerView = view.findViewById(R.id.recyclerview_plans)

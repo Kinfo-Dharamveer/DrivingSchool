@@ -55,11 +55,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.NewPasswordActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.OTPActivity" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.DashboardActivity"
             android:label="Home"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

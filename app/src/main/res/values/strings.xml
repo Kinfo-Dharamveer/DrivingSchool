@@ -2,10 +2,12 @@
     <string name="app_name">DrivingSchool</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="email">Email</string>
+
+    <string name="api_url">http://112.196.85.179:9083/drive/public/api/</string>
+
     <string name="password">Password</string>
     <string name="register_your_school">Register your School</string>
     <string name="or">OR</string>
-    <string name="server_url">https://basicsoftwaresolution.com/drive/public/api/</string>
     <string name="name">Name</string>
     <string name="school_name">School name</string>
     <string name="contact">Contact</string>
@@ -300,5 +302,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="i_am_student">
+        I AM\n
+        STUDENT
+    </string>
+    <string name="i_have_school">
+        I HAVE\n SCHOOL</string>
 
 </resources>

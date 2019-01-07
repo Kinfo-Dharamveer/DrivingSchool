@@ -1,7 +1,7 @@
 package com.drivingschool.android.restclient;
 
+import com.drivingschool.android.R;
 import com.drivingschool.android.response.feedback.FeedbackSuccess;
-import com.drivingschool.android.response.login.LoginResponse;
 import com.drivingschool.android.response.register.RegisterResponse;
 import com.drivingschool.android.response.schooldata.SchoolSuccess;
 import com.google.gson.Gson;
@@ -22,7 +22,7 @@ public class RestClient {
 
     private static GitApiInterface gitApiInterface;
 
-    private static String baseUrl = "http://112.196.85.181:9083/drive/public/api/";
+    private static String baseUrl = String.valueOf(R.string.api_url);
 
     public static GitApiInterface getClient() {
 
@@ -54,8 +54,6 @@ public class RestClient {
 
     public interface GitApiInterface {
 
-        @POST("login")
-        Call<LoginResponse> login(@Body HashMap<String, String> hashMap);
 
         @POST("register")
         Call<RegisterResponse> register(@Body HashMap<String, String> hashMap);

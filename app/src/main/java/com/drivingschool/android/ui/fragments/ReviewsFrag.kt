@@ -16,7 +16,7 @@ import com.drivingschool.android.adapters.ReviewAdapter
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.ReviewsList
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 import kotlinx.android.synthetic.main.layout_review.view.*
 
 class ReviewsFrag : Fragment(), ReviewAdapter.OnReplyClick {
@@ -32,7 +32,7 @@ class ReviewsFrag : Fragment(), ReviewAdapter.OnReplyClick {
 
         val view = inflater.inflate(R.layout.layout_review, container, false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Reviews")
 
         view.recyclerview_review.setHasFixedSize(true)

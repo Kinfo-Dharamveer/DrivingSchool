@@ -2,22 +2,29 @@ package com.drivingschool.android.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.drivingschool.android.AppConstants
+import com.drivingschool.android.DialogUtils
 import com.drivingschool.android.R
-import com.drivingschool.android.response.login.LoginResponse
-import com.drivingschool.android.restclient.RestClient
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.login_frag.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.androidnetworking.error.ANError
+import org.json.JSONObject
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
 
-class LoginFrag : BaseFrag(){
+
+
+
+
+
+class LoginFrag : Fragment(){
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,57 +46,84 @@ class LoginFrag : BaseFrag(){
                 }
                 else -> {
 
-                    showpDialog()
+                    val myDialog = DialogUtils.showProgressDialog(context, "Progressing......")
 
-                    val stringStringHashMap = HashMap<String, String>()
-                    stringStringHashMap.put("email",view.edEmail!!.text.toString())
-                    stringStringHashMap.put("password",view.edPsw!!.text.toString())
 
-                    val restClient = RestClient.getClient()
+                    AndroidNetworking.post(resources.getString(R.string.api_url)+"login")
+                            .addBodyParameter("email", view.edEmail!!.text.toString())
+                            .addBodyParameter("password", view.edPsw!!.text.toString())
+                            .setTag("test")
+                            .setPriority(Priority.MEDIUM)
+                            .build()
+                            .getAsJSONObject(object : JSONObjectRequestListener {
+                                override fun onResponse(response: JSONObject) {
+                                    // do anything with response
+                                    myDialog.dismiss()
 
-                    restClient.login(stringStringHashMap).enqueue(object : Callback<LoginResponse> {
+                                    val responseString = response.toString()
+                                    val jsonData = JSONObject(responseString)
 
-                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                                    if (jsonData.getString("status").equals("Success")){
 
-                            if (response.isSuccessful){
+                                        Toast.makeText(context, jsonData.getString("message").toString(), Toast.LENGTH_SHORT).show()
 
-                                if (response.body()!!.getStatus().equals("Success")) {
+                                       // val jsonUser  = jsonData.getString("user").length
 
-                                    hidepDialog()
+                                        val jsonUser  = jsonData.getJSONObject("user")
 
-                                    Toast.makeText(context,"You are successfully login", Toast.LENGTH_SHORT).show()
+                                        for (i in 0 until jsonUser.length()) {
 
-                                    Hawk.put(AppConstants.USER_ID, response.body()!!.getUserId().toString())
+                                            Hawk.put(AppConstants.USER_ID, jsonUser.getString("id"))
+                                            Hawk.put(AppConstants.USER_NAME, jsonUser.getString("name"))
+                                            Hawk.put(AppConstants.USER_EMAIL, jsonUser.getString("email"))
+                                            Hawk.put(AppConstants.ROLE_ID, jsonUser.getInt("role"))
 
-                                    val i = Intent(context, MainActivity::class.java)
-                                    startActivity(i)
+
+                                            if (jsonUser.getInt("role").equals(0)){
+
+                                                val f1 = TwoUserFragment()
+                                                val fragmentTransaction = fragmentManager!!.beginTransaction()
+                                                fragmentTransaction.replace(R.id.home_container, f1)
+                                                fragmentTransaction.commit()
+                                            }
+                                            else if (jsonUser.getInt("role").equals(1)){
+                                                //Open School
+                                                val i1 = Intent(context, DashboardActivity::class.java)
+                                                startActivity(i1)
+                                            }
+                                            else{
+
+                                                //Open Student
+                                                val i = Intent(context, DashboardActivity::class.java)
+                                                startActivity(i)
+                                            }
+                                        }
+
+                                    }
+                                    else{
+                                        myDialog.dismiss()
+                                        Toast.makeText(context, jsonData.getString("message").toString(), Toast.LENGTH_SHORT).show()
+
+                                    }
+
+
+
 
                                 }
-                                else
-                                {
-                                    ErrorAlertDialog(response.body()!!.getMessage()!!)
+
+                                override fun onError(error: ANError) {
+                                    myDialog.dismiss()
+
+                                    // handle error
+                                    Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show()
+
                                 }
+                            })
 
-                            }
-                            else
-                            {
-                                ErrorAlertDialog("Email or password is incorrect")
-                                hidepDialog()
-                                view.edEmail!!.text.clear()
-                                view.edPsw!!.text.clear()
-                            }
-
-                        }
-
-                        override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
-
-                            ErrorAlertDialog(t.toString())
-                            hidepDialog()
-
-                        }
-                    })
 
                 }
+
+
             }
 
 
@@ -101,9 +135,6 @@ class LoginFrag : BaseFrag(){
             val fragmentTransaction = fragmentManager!!.beginTransaction()
             fragmentTransaction.replace(R.id.home_container, f1)
             fragmentTransaction.commit()
-
-         //   val i = Intent(context, RegisterActivity::class.java)
-          //  startActivity(i)
 
         }
 

@@ -13,7 +13,7 @@ import com.drivingschool.android.R
 import com.drivingschool.android.adapters.StudentsAdapter
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
 import com.drivingschool.android.models.StudentsList
-import com.drivingschool.android.ui.MainActivity
+import com.drivingschool.android.ui.DashboardActivity
 
 class StudentsFrag : Fragment() {
 
@@ -26,7 +26,7 @@ class StudentsFrag : Fragment() {
 
         val view = inflater.inflate(R.layout.layout_students, container, false)
 
-        val mainActivity = activity as MainActivity
+        val mainActivity = activity as DashboardActivity
         mainActivity.setToolbarTittle("Students")
 
         recyclerView = view.findViewById(R.id.recyclerview_students)
