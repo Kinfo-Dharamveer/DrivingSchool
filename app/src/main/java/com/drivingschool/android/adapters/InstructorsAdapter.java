@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 
 import com.drivingschool.android.R;
 import com.drivingschool.android.customviews.CustomTextView;
-import com.drivingschool.android.models.InstructorModel;
+import com.drivingschool.android.response.instructorList.InstructorsModel;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class InstructorsAdapter extends RecyclerView.Adapter<InstructorsAdapter.Holder> {
 
-    private ArrayList<InstructorModel> instructorModelArrayList;
+    private List<InstructorsModel> instructorModelArrayList;
     private Context context;
     private mClickListener mClickListener;
 
@@ -23,7 +23,7 @@ public class InstructorsAdapter extends RecyclerView.Adapter<InstructorsAdapter.
         public void mClick(View v, int position);
     }
 
-    public InstructorsAdapter(ArrayList<InstructorModel> instructorModelArrayList, Context context,mClickListener listener) {
+    public InstructorsAdapter(List<InstructorsModel> instructorModelArrayList, Context context,mClickListener listener) {
         this.instructorModelArrayList = instructorModelArrayList;
         this.context = context;
         this.mClickListener =listener;
@@ -41,10 +41,9 @@ public class InstructorsAdapter extends RecyclerView.Adapter<InstructorsAdapter.
     @Override
     public void onBindViewHolder(@NonNull InstructorsAdapter.Holder holder, final int position) {
 
-        final InstructorModel instructorModel = instructorModelArrayList.get(position);
+        final InstructorsModel instructorModel = instructorModelArrayList.get(position);
 
-        holder.tvname.setText(instructorModel.getName());
-
+        holder.tvname.setText(instructorModel.getSchool_id());
 
         holder.tvDetail.setOnClickListener(new View.OnClickListener() {
             @Override

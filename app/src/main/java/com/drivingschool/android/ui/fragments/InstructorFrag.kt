@@ -9,14 +9,19 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.drivingschool.android.R
 import com.drivingschool.android.adapters.InstructorsAdapter
 import com.drivingschool.android.customviews.CustomTextView
 import com.drivingschool.android.customviews.SimpleDividerItemDecoration
-import com.drivingschool.android.models.InstructorModel
+import com.drivingschool.android.response.instructorList.InstructorData
+import com.drivingschool.android.restclient.RestClient
 import com.drivingschool.android.ui.DashboardActivity
 import kotlinx.android.synthetic.main.layout_instructor.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class InstructorFrag : Fragment(), InstructorsAdapter.mClickListener {
@@ -24,7 +29,6 @@ class InstructorFrag : Fragment(), InstructorsAdapter.mClickListener {
 
     private lateinit var viewAdapter: InstructorsAdapter
     private lateinit var layoutmanager: RecyclerView.LayoutManager
-    private val instructorModelArrayList = ArrayList<InstructorModel>()
     private lateinit var alertDialog : AlertDialog
 
 
@@ -37,12 +41,44 @@ class InstructorFrag : Fragment(), InstructorsAdapter.mClickListener {
 
 
         view.recycler_inst.setHasFixedSize(true)
-        viewAdapter = InstructorsAdapter(instructorModelArrayList, context, this)
         layoutmanager = LinearLayoutManager(context)
         view.recycler_inst.layoutManager = layoutmanager
         view.recycler_inst.itemAnimator = DefaultItemAnimator()
         view.recycler_inst.addItemDecoration(SimpleDividerItemDecoration(context))
-        view.recycler_inst.adapter = viewAdapter
+
+        val restClient = RestClient.getClient()
+
+        restClient.instructorsList().enqueue(object : Callback<InstructorData>{
+
+            override fun onResponse(call: Call<InstructorData>, response: Response<InstructorData>) {
+
+
+                if (response.isSuccessful){
+
+                    Toast.makeText(context,"Success", Toast.LENGTH_SHORT).show()
+
+                    val instructorList = response.body()!!.instructors
+
+                    viewAdapter = InstructorsAdapter(instructorList, context, this@InstructorFrag)
+
+                    view.recycler_inst.adapter = viewAdapter
+
+                }
+                else{
+                    Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<InstructorData>, t: Throwable) {
+
+            }
+
+
+
+        })
+
 
 
         view.addNewInstr.setOnClickListener {
@@ -68,31 +104,11 @@ class InstructorFrag : Fragment(), InstructorsAdapter.mClickListener {
 
         }
 
-
-
-        instructorData()
+      //  instructorData()
 
         return view
     }
 
-    private fun instructorData() {
-
-        val instructorModel = InstructorModel("Mac sanah")
-        instructorModelArrayList.add(instructorModel)
-
-        val instructorModel1 = InstructorModel("Jack sanah")
-        instructorModelArrayList.add(instructorModel1)
-
-        val instructorModel2 = InstructorModel("Dack sanah")
-        instructorModelArrayList.add(instructorModel2)
-
-
-        val instructorModel3 = InstructorModel("Roni sanah")
-        instructorModelArrayList.add(instructorModel3)
-
-        viewAdapter.notifyDataSetChanged()
-
-    }
 
 
     override fun mClick(v: View?, position: Int) {

@@ -8,10 +8,6 @@ import android.telephony.TelephonyManager;
 import com.drivingschool.android.data.Constants;
 
 
-/**
- * Created by anartzmugika on 22/6/16.
- */
-
 public class NetworkUtil {
 
     private static int TYPE_WIFI = 1;

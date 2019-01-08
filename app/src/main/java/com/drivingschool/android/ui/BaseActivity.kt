@@ -8,17 +8,15 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.drivingschool.android.data.Constants.CONNECTIVITY_ACTION
 import com.drivingschool.android.service.NetworkChangeReceiver
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
-
-
-
 open class BaseActivity: AppCompatActivity() {
 
-   internal var pDialog: ProgressDialog? = null
+    internal var pDialog: ProgressDialog? = null
     internal lateinit var intentFilter: IntentFilter
     internal lateinit var receiver: NetworkChangeReceiver
 
@@ -58,7 +56,7 @@ open class BaseActivity: AppCompatActivity() {
             pDialog!!.show()
     }
 
-     fun hidepDialog() {
+    fun hidepDialog() {
         if (pDialog!!.isShowing())
             pDialog!!.dismiss()
     }
@@ -76,7 +74,7 @@ open class BaseActivity: AppCompatActivity() {
         // Set a positive button and its click listener on alert dialog
         builder.setPositiveButton("OK"){dialog, which ->
             // Do something when user press the positive button
-          dialog.dismiss()
+            dialog.dismiss()
 
         }
 

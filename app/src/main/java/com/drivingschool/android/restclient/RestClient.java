@@ -2,6 +2,7 @@ package com.drivingschool.android.restclient;
 
 import com.drivingschool.android.R;
 import com.drivingschool.android.response.feedback.FeedbackSuccess;
+import com.drivingschool.android.response.instructorList.InstructorData;
 import com.drivingschool.android.response.register.RegisterResponse;
 import com.drivingschool.android.response.schooldata.SchoolSuccess;
 import com.google.gson.Gson;
@@ -54,16 +55,17 @@ public class RestClient {
 
     public interface GitApiInterface {
 
-
         @POST("register")
         Call<RegisterResponse> register(@Body HashMap<String, String> hashMap);
 
         @GET("schools")
         Call<SchoolSuccess> schoolList();
 
-
         @POST("contact")
         Call<FeedbackSuccess> sendFeedback(@Body HashMap<String,String> hashMap);
+
+        @GET("school/1/instructors")
+        Call<InstructorData> instructorsList();
 
     }
 }
